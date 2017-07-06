@@ -1,0 +1,51 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        // "switch-default": true,
+        "trailing-comma": [
+            false
+        ],
+        "object-literal-sort-keys": false,
+        "arrow-parens": false,
+        "ordered-imports": [
+            false
+        ],
+        "semicolon": [
+            false
+        ],
+        "array-type": [
+            false
+        ],
+        "no-console": [
+            false
+        ],
+        "member-access": [
+            false
+        ],
+        "max-classes-per-file": [
+            false
+        ],
+        "no-empty": false,
+        "member-ordering": [
+            false
+        ],
+        "interface-name": [
+            false
+        ],
+        "no-unused-expression": [
+            false
+        ],
+        "only-arrow-functions": [
+            false
+        ],
+        "no-angle-bracket-type-assertion": false,
+        "max-line-length": [
+            false
+        ]
+    },
+    "rulesDirectory": []
+}

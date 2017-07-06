@@ -1,0 +1,25 @@
+{
+  "name": "ts-everything-demos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/tape": "^4.2.30",
+    "awesome-typescript-loader": "^3.2.1",
+    "http-server": "^0.10.0",
+    "systemjs": "^0.20.14",
+    "tape": "^4.6.3",
+    "ts-node": "^3.2.0",
+    "tslint": "^5.4.3",
+    "typescript": "^2.4.1",
+    "webpack": "^3.0.0"
+  },
+  "scripts": {
+    "test": "ts-node -F node_modules/.bin/tape **/*.spec.ts",
+    "browser-test": "webpack && open public/index.html"
+  },
+  "dependencies": {
+    "@types/react": "^15.0.34",
+    "react": "^15.6.1"
+  }
+}

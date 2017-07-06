@@ -1,0 +1,5 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "nodeTdd.glob": "**/*.{js,ts,jsx,tsx}",
+    "nodeTdd.minimal": false
+}
