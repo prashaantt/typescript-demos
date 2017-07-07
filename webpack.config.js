@@ -1,5 +1,7 @@
+const glob = require("glob");
+
 module.exports = {
-    entry: "./tests.ts",
+    entry: glob.sync("./**/*.spec.ts"),
     output: {
         filename: "./public/bundle.js"
     },
