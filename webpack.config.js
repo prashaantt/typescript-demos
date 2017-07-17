@@ -8,7 +8,7 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
-    devtool: "inline-source-map",
+    devtool: "source-map",
     module: {
         loaders: [
             {

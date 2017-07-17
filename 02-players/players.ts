@@ -37,8 +37,6 @@ const getAge = (player: IPlayer) => {
         return "N/A";
     } else if (typeof player.birthday === "string") {
         return age(new Date(player.birthday));
-    } else {
-        return age(player.birthday);
     }
 }
 

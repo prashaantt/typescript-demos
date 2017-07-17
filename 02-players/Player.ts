@@ -1,14 +1,15 @@
 import { IPlayer } from "./players";
 
 class Player implements IPlayer {
-    lname: string;
     fname: string;
     birthday?: string;
     scores: (number | undefined)[];
 
-    constructor(player: IPlayer) {
-        Object.assign(this, player);
-    }
+    // constructor(player: IPlayer) {
+    //     Object.assign(this, player);
+    // }
+
+    constructor(public lname: string) { }
 
     getStats() {
         console.log(this.fullName(), `(${this.getAge()})`, this.netScore());

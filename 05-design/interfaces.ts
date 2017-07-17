@@ -1,4 +1,4 @@
-import { IPlayer } from "../02. players/players";
+import { IPlayer } from "../02-players/players";
 
 export interface Controller<T> {
     create(object: T): void;

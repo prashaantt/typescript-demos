@@ -21,6 +21,17 @@
             "args": ["-r", "ts-node/register", "**/*.spec.ts"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector"
+        },
+        {
+            "name": "Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceRoot}/public",
+            "userDataDir": "${workspaceRoot}/.chrome",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            }
         }
     ]
 }

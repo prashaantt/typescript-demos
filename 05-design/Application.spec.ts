@@ -9,7 +9,7 @@ const getStorageProvider = (): StorageProvider => {
     try {
         sessionStorage.setItem(test, test);
         sessionStorage.removeItem(test);
-        return SessionStorageProvider.getInstance();
+        return new SessionStorageProvider();
     } catch (e) {
         return MemoryStorageProvider.getInstance();
     }

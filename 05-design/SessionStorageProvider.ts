@@ -1,17 +1,7 @@
 import { StorageProvider } from "./interfaces";
 
-let instance: SessionStorageProvider;
-
 export class SessionStorageProvider implements StorageProvider {
-    private constructor() { }
-
-    static getInstance() {
-        if (!instance) {
-            instance = new SessionStorageProvider();
-        }
-
-        return instance;
-    }
+    constructor() { }
 
     save(key: string | number, value: string): void {
         sessionStorage.setItem(key.toString(), value);

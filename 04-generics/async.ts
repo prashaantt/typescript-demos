@@ -6,4 +6,4 @@ const test = async () => {
     console.log("world");
 }
 
-// test();
+test();

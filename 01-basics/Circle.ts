@@ -10,7 +10,7 @@
 //     }
 // }
 
-import { Shape } from "./Shape";
+import { Shape } from "./interfaces";
 
 class Square implements Shape {
     edge: number;

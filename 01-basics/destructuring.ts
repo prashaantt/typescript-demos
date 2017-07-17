@@ -1,4 +1,4 @@
-import { IPlayer } from "../02. players/players";
+import { IPlayer } from "../02-players/players";
 
 const tendulkar: IPlayer = {
     fname: "Sachin",

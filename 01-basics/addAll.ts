@@ -1,11 +1,3 @@
-// const numbers = [1, 2, 3, "4"];
-
-// const addAll = (values) => values.reduce(add);
-
-// const add = (a, b) => a + b;
-
-// console.log(addAll(numbers));
-
 import { add } from "./add";
 
 const numbers = [1, 2, 3, "4"];
