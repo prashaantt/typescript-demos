@@ -1,4 +1,4 @@
-const sleep = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
+export const sleep = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
 const test = async () => {
     console.log("Hello");
@@ -6,4 +6,4 @@ const test = async () => {
     console.log("world");
 }
 
-test();
+// test();

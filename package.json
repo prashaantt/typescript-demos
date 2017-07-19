@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/glob": "^5.0.30",
     "@types/tape": "^4.2.30",
+    "@types/webpack": "^3.0.4",
     "awesome-typescript-loader": "^3.2.1",
     "glob": "^7.1.2",
     "http-server": "^0.10.0",

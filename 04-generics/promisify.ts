@@ -1,43 +1,28 @@
-import { readFile, readFileSync, readdir, readdirSync, createReadStream } from "fs";
-import { createInterface } from "readline";
+import { readFile, readFileSync, readdir } from "fs";
 
 // readFile("./package.json", "utf8", (err, data) => {
-
 //     if (err) {
-//         throw err;
+//         throw new Error(err.message);
 //     }
 
 //     console.log(data);
-// })
+// });
 
 // console.log(readFileSync("./package.json", "utf8"));
 
-const promisify = <T>(fn: (...args: any[]) => void) => {
-    return (...fnArgs: any[]) =>
-        new Promise<T>((resolve, reject) =>
-            fn(...fnArgs, (err: Error, value: T) => err ? reject(err) : resolve(value))
-        )
-}
+const filename = "./package.json";
 
-const reader = async (filename: string) => {
-    try {
-        const contents: string = await readFileAsync("./package.json", "utf8");
-        console.log(contents);
-    } catch (e) {
-        console.error(e.message);
-        // throw {
-        //     name: "hey",
-        //     message: e.message,
-        //     what: "what"
-        // }
-    }
-    // console.log(await readFileAsync("./package.json", "utf8"));
-}
+const promisify = <T>(fn: (...fnArgs: any[]) => void) =>
+    (...args: any[]) =>
+        new Promise<T>((resolve, reject) => {
+            fn(...args, (err: Error, value: T) => err ? reject(err) : resolve(value));
+        });
 
 const readFileAsync = promisify<string>(readFile);
 const readdirAsync = promisify<string[]>(readdir);
-reader("./package.json")
 
-if (true) {
-    const f = () => { };
+async function reader(file: string) {
+    console.log(await readFileAsync(file, "utf8"));
 }
+
+reader(filename);

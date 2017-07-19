@@ -1,13 +1,7 @@
 import { add } from "./add";
 
-const numbers = [1, 2, 3, "4"];
-
 const addAll = (values: number[]) => values.reduce(add);
 
-// const add = (a: number, b: number) => a + b;
+const numbers: number[] = [1, 2, 3, +"4"];
 
-// console.log(addAll(numbers));
-
-// for (const num of numbers) {
-//     console.log(num - 10);
-// }
+addAll(numbers)

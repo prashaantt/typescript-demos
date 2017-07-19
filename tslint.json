@@ -48,7 +48,9 @@
         ],
         "space-before-function-parem": [
             false
-        ]
+        ],
+        "eofline": false,
+        "no-shadowed-variable": false
     },
     "rulesDirectory": []
 }

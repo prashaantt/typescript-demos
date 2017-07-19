@@ -1,4 +1,10 @@
-import { IPlayer } from "../02-players/players";
+export interface Player {
+    id: number;
+    fname: string;
+    lname: string;
+    scores: number[];
+    birthday: string;
+}
 
 export interface Controller<T> {
     create(object: T): void;
@@ -23,9 +29,3 @@ export interface StorageProvider {
 }
 
 export type Constructor<T = {}> = new (...args: any[]) => T;
-
-interface Identifier {
-    id: number;
-}
-
-export type PlayerWithId = IPlayer & Identifier;

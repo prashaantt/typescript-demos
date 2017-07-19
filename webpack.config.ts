@@ -1,6 +1,7 @@
-const glob = require("glob");
+import glob = require("glob");
+import { Configuration } from "webpack";
 
-module.exports = {
+const config: Configuration = {
     entry: glob.sync("./**/*.spec.ts"),
     output: {
         filename: "./public/bundle.js"
@@ -21,3 +22,5 @@ module.exports = {
         fs: "empty"
     }
 };
+
+export default config;
