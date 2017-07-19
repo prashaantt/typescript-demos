@@ -1,3 +1,7 @@
+/**
+ * 1998 Sharjah Cup
+ */
+
 export interface Player {
     fname: string;
     lname: string;
