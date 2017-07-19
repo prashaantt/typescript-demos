@@ -1,11 +1,11 @@
-import { PlayerWithId } from "./interfaces";
+import { Player } from "./interfaces";
 
 class BasicPlayerController {
-    create(player: PlayerWithId): void {
+    create(player: Player): void {
         sessionStorage.setItem(player.id.toString(), this.serialize(player));
     }
 
-    read(id: number): PlayerWithId {
+    read(id: number): Player {
         const item = sessionStorage.getItem(id.toString());
 
         if (!item) {
@@ -19,11 +19,11 @@ class BasicPlayerController {
         sessionStorage.removeItem(id.toString());
     }
 
-    serialize(object: PlayerWithId) {
+    serialize(object: Player) {
         return JSON.stringify(object);
     }
 
     deserialize(value: string) {
-        return JSON.parse(value) as PlayerWithId;
+        return JSON.parse(value) as Player;
     }
 }

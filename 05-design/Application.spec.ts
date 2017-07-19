@@ -1,10 +1,10 @@
 import test = require("tape");
 import { SerializedPlayerController } from "./Application";
-import { StorageProvider, PlayerWithId } from "./interfaces";
+import { StorageProvider, Player } from "./interfaces";
 import { SessionStorageProvider } from "./SessionStorageProvider";
 import { MemoryStorageProvider } from "./MemoryStorageProvider";
 
-const getStorageProvider = (): StorageProvider => {
+function getStorageProvider(): StorageProvider {
     const test = "test";
     try {
         sessionStorage.setItem(test, test);
@@ -20,7 +20,7 @@ test("Application controller", tape => {
     tape.test("successfully creates a new record", t => {
         const playerController = new SerializedPlayerController(getStorageProvider());
 
-        const tendulkar: PlayerWithId = {
+        const tendulkar: Player = {
             id: Date.now(),
             fname: "Sachin",
             lname: "Tendulkar",

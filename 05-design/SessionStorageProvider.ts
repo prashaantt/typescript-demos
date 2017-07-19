@@ -1,8 +1,6 @@
 import { StorageProvider } from "./interfaces";
 
 export class SessionStorageProvider implements StorageProvider {
-    constructor() { }
-
     save(key: string | number, value: string): void {
         sessionStorage.setItem(key.toString(), value);
     }

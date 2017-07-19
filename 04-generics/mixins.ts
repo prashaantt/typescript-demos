@@ -23,7 +23,7 @@ class Bovine implements Animal {
 
 export type Constructor<T = {}> = new (...args: any[]) => T;
 
-function Mooer<T extends Constructor, U>(Base: T) {
+function Mooer<T extends Constructor>(Base: T) {
     return class extends Base {
         moo() {
             console.log("mooing");
@@ -31,7 +31,7 @@ function Mooer<T extends Constructor, U>(Base: T) {
     }
 }
 
-function Roarer<T extends Constructor, U>(Base: T) {
+function Roarer<T extends Constructor>(Base: T) {
     return class extends Base {
         roar() {
             console.log("roaring");
@@ -39,7 +39,7 @@ function Roarer<T extends Constructor, U>(Base: T) {
     }
 }
 
-function Meower<T extends Constructor, U>(Base: T) {
+function Meower<T extends Constructor>(Base: T) {
     return class extends Base {
         meow() {
             console.log("meowing");
@@ -47,7 +47,7 @@ function Meower<T extends Constructor, U>(Base: T) {
     }
 }
 
-function Hunter<T extends Constructor, U>(Base: T) {
+function Hunter<T extends Constructor>(Base: T) {
     return class extends Base {
         move() {
             console.log("slyly chasing");
@@ -57,13 +57,17 @@ function Hunter<T extends Constructor, U>(Base: T) {
 
 const Cow = Mooer(Bovine);
 const clarabelle = new Cow();
-clarabelle.moo();
 clarabelle.move();
+clarabelle.moo();
+
+console.log("=========");
 
 const Cat = Meower(Feline);
 const tom = new Cat();
 tom.meow();
 tom.move();
+
+console.log("=========");
 
 const Lion = Hunter(Roarer(Feline));
 const simba = new Lion();

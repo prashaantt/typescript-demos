@@ -10,27 +10,48 @@ interface ComponentState {
     selectionIndex: number;
 }
 
-export class Component extends React.Component<ComponentProps, ComponentState> {
+class Component extends React.Component<ComponentProps, ComponentState> {
     constructor() {
         super();
         this.state = {
-            selectionIndex: 0
+            selectionIndex: 0,
         }
     }
-
-    shouldComponentUpdate(newProps: ComponentProps) {
-        return true;
-    }
-
-    renderValue = (s: string) => <span>{ s.toUpperCase() }</span>;
 
     render() {
         const { values, ...rest } = this.props;
 
         return (
-            <div>
-                { values.map(this.renderValue) }
-            </div>
+            <ul style={ styles.list }>
+                { values.map((val, index) => <ListItem value={ val } />).join("") }
+            </ul>
         );
+    }
+}
+
+interface ListItemProps {
+    value: string;
+    highlighted?: boolean;
+}
+
+const ListItem = (props: ListItemProps) => (
+    <li style={ styles.item(props.highlighted) }>
+        { props.value.toUpperCase() }
+    </li>
+)
+
+const styles = {
+    list: {
+        alignContent: "center"
+    } as React.CSSProperties,
+
+    item(highlighted = false): React.CSSProperties {
+        if (highlighted) {
+            return {
+                backgroundColor: "yellow"
+            };
+        }
+
+        return {};
     }
 }

@@ -1,23 +1,23 @@
-import { Controller, Serializable, Deserializable, StorageProvider, PlayerWithId } from "./interfaces";
+import { Controller, Serializable, Deserializable, StorageProvider, Player } from "./interfaces";
 
-export class PlayerController implements Controller<PlayerWithId>,
-    Serializable<PlayerWithId>,
-    Deserializable<PlayerWithId> {
+export class PlayerController implements Controller<Player>,
+    Serializable<Player>,
+    Deserializable<Player> {
     private storageProvider: StorageProvider;
 
     constructor(storageProvider: StorageProvider) {
         this.storageProvider = storageProvider;
     }
 
-    create(object: PlayerWithId): void {
+    create(object: Player): void {
         return this.storageProvider.save(object.id, this.serialize(object));
     }
 
-    read(key: number): PlayerWithId {
+    read(key: number): Player {
         try {
             return this.deserialize(this.storageProvider.get(key));
         } catch (e) {
-            return {} as PlayerWithId;
+            return {} as Player;
         }
     }
 
@@ -29,11 +29,11 @@ export class PlayerController implements Controller<PlayerWithId>,
         return this.storageProvider.delete(key);
     }
 
-    serialize(object: PlayerWithId): string {
+    serialize(object: Player): string {
         throw new Error("Method not implemented.");
     }
 
-    deserialize(json: string): PlayerWithId {
+    deserialize(json: string): Player {
         throw new Error("Method not implemented.");
     }
 }
