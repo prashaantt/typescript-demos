@@ -3,7 +3,7 @@ import { StorageProvider } from "./interfaces";
 let instance: MemoryStorageProvider;
 
 export class MemoryStorageProvider implements StorageProvider {
-    private storageMap: Map<number, string> = new Map();
+    private storageMap: Map<number | string, string> = new Map();
 
     private constructor() { }
 
@@ -15,11 +15,11 @@ export class MemoryStorageProvider implements StorageProvider {
         return instance;
     }
 
-    save(key: number, value: string): void {
+    save(key: number | string, value: string): void {
         this.storageMap.set(key, value);
     }
 
-    get(key: number): string {
+    get(key: number | string): string {
         const item = this.storageMap.get(key);
 
         if (!item) {
@@ -33,7 +33,7 @@ export class MemoryStorageProvider implements StorageProvider {
         throw new Error("Method not implemented.");
     }
 
-    delete(key: number): void {
+    delete(key: number | string): void {
         this.storageMap.delete(key);
     }
 }
