@@ -17,5 +17,7 @@ export const serveRoutes = (req: IncomingMessage, res: ServerResponse) => {
         return route.handler(req, res);
     }
 
+    res.statusCode = 404;
+
     return res.end("Not found!");
 }

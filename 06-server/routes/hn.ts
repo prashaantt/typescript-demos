@@ -1,7 +1,7 @@
 import { Route } from "../router";
 import "isomorphic-fetch";
 
-interface HNItem {
+export interface HNItem {
     id: number;
     deleted?: boolean;
     type: "job" | "story" | "comment" | "poll" | "pollopt";
@@ -36,14 +36,10 @@ export const topStories: Route = {
     }
 }
 
-const doFetch = <T>(url: string): Promise<T> => {
-    return fetch(url).then(res => res.json());
-}
-
 const renderStoryWithComments = (story: HNItem, comments: HNItem[]) => {
     return `<html>
             <body>
-                <h1><a href="${story.url}">${story.title}</a></h1></h1>
+                <h1><a href="${story.url}">${story.title}</a></h1>
                 <h4>Submitted by: ${story.by}</h4>
                 <hr>
                 <h3>Comments</h3>
@@ -56,12 +52,16 @@ const renderComments = (comments: HNItem[]) => {
     return `<ul>${comments.map(renderComment).join("")}</ul>`;
 }
 
-const renderComment = (comment: HNItem) => {
+export const renderComment = (comment: HNItem) => {
     return `<li>${comment.text}</li>`;
 }
 
-const getTopStoriesUrl = () => `https://hacker-news.firebaseio.com/v0/topstories.json`;
+export const doFetch = <T>(url: string): Promise<T> => {
+    return fetch(url).then(res => res.json());
+}
 
-const getItemUrl = (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
+export const getTopStoriesUrl = () => `https://hacker-news.firebaseio.com/v0/topstories.json`;
 
-const getCommentUrl = (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
+export const getItemUrl = (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
+
+export const getCommentUrl = (id: number) => `https://hacker-news.firebaseio.com/v0/item/${id}.json`;
