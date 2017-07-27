@@ -21,7 +21,9 @@
     "browser-test": "webpack && open public/index.html"
   },
   "dependencies": {
+    "@types/isomorphic-fetch": "^0.0.34",
     "@types/react": "^15.0.34",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.6.1"
   }
 }
