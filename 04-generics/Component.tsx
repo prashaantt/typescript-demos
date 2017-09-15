@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from "react";
 
 interface ComponentProps {
     values: string[];
@@ -23,7 +23,7 @@ class Component extends React.Component<ComponentProps, ComponentState> {
 
         return (
             <ul style={ styles.list }>
-                { values.map((val, index) => <ListItem value={ val } />).join("") }
+                { values.map((val, index) => <ListItem value={ val } />) }
             </ul>
         );
     }
