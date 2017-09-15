@@ -57,6 +57,7 @@ function Hunter<T extends Constructor>(Base: T) {
 
 const Cow = Mooer(Bovine);
 const clarabelle = new Cow();
+clarabelle.eat();
 clarabelle.move();
 clarabelle.moo();
 
@@ -64,12 +65,14 @@ console.log("=========");
 
 const Cat = Meower(Feline);
 const tom = new Cat();
-tom.meow();
+tom.eat();
 tom.move();
+tom.meow();
 
 console.log("=========");
 
 const Lion = Hunter(Roarer(Feline));
 const simba = new Lion();
-simba.roar();
+simba.eat();
 simba.move();
+simba.roar();
