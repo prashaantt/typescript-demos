@@ -26,7 +26,7 @@ const renderStoryWithComments = async (story: HNItem, res: ServerResponse, seque
                 <body>
                 <h1><a href="${story.url}">${story.title}</a></h1></h1>
                 <h4>Submitted by: ${story.by}</h4>`);
-    if (story.kids.length) {
+    if (story.kids && story.kids.length) {
         await renderComments(story.kids, res, sequential);
     }
     res.end(`</body></html>`);
